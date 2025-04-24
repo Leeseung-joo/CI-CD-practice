@@ -2,9 +2,12 @@ package umc.study.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -13,26 +16,39 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.MultiPolygon;
 import org.locationtech.jts.geom.Point;
+import umc.study.common.BaseEntity;
 
 @Entity
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class EmdArea {
+public class EmdArea extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10)
+    private String admCode;
+
+    @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(name = "geom", columnDefinition = "geometry(MultiPolygon,4326)", nullable = false)
+
+    @Column(nullable = false)
     private MultiPolygon geom;
 
-    @Column(name = "center", columnDefinition = "geometry(Point,4326)", nullable = false)
+
+    @Column(nullable = false)
     private Point center;
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP")
+
+
+
+    @Column(name = "info_version",nullable = false)
     private LocalDateTime version;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sigg_area_id", nullable = false)
+    private SiggArea siggArea;
 }
