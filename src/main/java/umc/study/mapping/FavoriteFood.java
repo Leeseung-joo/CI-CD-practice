@@ -1,4 +1,4 @@
-package umc.study.domain;
+package umc.study.mapping;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,20 +13,24 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import umc.study.common.BaseEntity;
+import umc.study.domain.Food;
+import umc.study.domain.Member;
 
 @Entity
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class RestaurantImage extends BaseEntity {
+public class FavoriteFood extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String imgUrl;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restaurant_id", nullable = false)
-    private Restaurant restaurant;
+    @JoinColumn(name = "food_id", nullable = false)
+    private Food food;
 }
