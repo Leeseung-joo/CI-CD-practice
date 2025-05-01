@@ -18,5 +18,5 @@ spring:
         database: mysql
         database-platform: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
         hbm2ddl:
-          auto: create
+          auto: update
         default_batch_fetch_size: 1000

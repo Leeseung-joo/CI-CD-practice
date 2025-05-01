@@ -22,11 +22,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.locationtech.jts.geom.Point;
 import umc.study.common.BaseEntity;
 import umc.study.mapping.FavoriteFood;
 import umc.study.mapping.MissionHistory;
 import umc.study.mapping.UserTerms;
+import org.locationtech.jts.geom.Point;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
