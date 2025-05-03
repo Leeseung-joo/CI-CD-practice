@@ -22,11 +22,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.locationtech.jts.geom.Point;
 import umc.study.common.BaseEntity;
 import umc.study.mapping.FavoriteFood;
-import umc.study.mapping.MissonHistory;
+import umc.study.mapping.MissionHistory;
 import umc.study.mapping.UserTerms;
+import org.locationtech.jts.geom.Point;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -67,7 +67,7 @@ public class Member extends BaseEntity {
     private Long completedMissionCount;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<MissonHistory> memberMissonList = new ArrayList<>();
+    private List<MissionHistory> memberMissonList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true) //연관 관계에서 제거된 자식 엔티티를 자동 삭제
     private List<RefreshToken> refreshTokenList = new ArrayList<>();
@@ -75,18 +75,21 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Notification> notificationList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FavoriteFood> favoriteFoodList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserTerms> userTermsList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RegionReward> regionRewardList = new ArrayList<>();
 
     @OneToOne
     @JoinColumn(name = "emd_areas_id", nullable = false)
     private EmdArea emdArea;
+
+
+
 
 
 
