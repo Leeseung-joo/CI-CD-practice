@@ -25,6 +25,9 @@ dependencies {
 	implementation 'org.hibernate.orm:hibernate-spatial:6.2.9.Final'
 	implementation 'org.locationtech.jts:jts-core:1.18.2'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	// build.gradle
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
 	// queryDSL
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
 	annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"

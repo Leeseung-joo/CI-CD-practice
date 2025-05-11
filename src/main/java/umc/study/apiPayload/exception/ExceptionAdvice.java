@@ -2,10 +2,14 @@ package umc.study.apiPayload.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -20,11 +24,17 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import umc.study.apiPayload.ApiResponse;
 import umc.study.apiPayload.code.ErrorReasonDTO;
 import umc.study.apiPayload.code.status.ErrorStatus;
+import umc.study.service.discordService.DiscordCommandService;
+import umc.study.web.dto.DiscordErrorResponse;
 
+@RequiredArgsConstructor
 @Slf4j
 @RestControllerAdvice(annotations = {RestController.class})
 public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 
+    @Value("${error.alert.enabled:false}")
+    private boolean isAlertEnabled;
+    private final DiscordCommandService discordNotifier;
 
     @ExceptionHandler
     public ResponseEntity<Object> validation(ConstraintViolationException e, WebRequest request) {
@@ -54,6 +64,18 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<Object> exception(Exception e, WebRequest request) {
         e.printStackTrace();
+
+        HttpServletRequest servletRequest = ((ServletWebRequest) request).getRequest();
+        DiscordErrorResponse discordErrorResponse = DiscordErrorResponse.builder()
+                .url(servletRequest.getRequestURI())
+                .method(servletRequest.getMethod())
+                .timestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+                .message(Optional.ofNullable(e.getMessage()).orElse("예외 메시지 없음"))
+                .build();
+
+
+
+        discordNotifier.sendAlert(discordErrorResponse.toDiscordFormat());
 
         return handleExceptionInternalFalse(e, ErrorStatus._INTERNAL_SERVER_ERROR, HttpHeaders.EMPTY, ErrorStatus._INTERNAL_SERVER_ERROR.getHttpStatus(),request, e.getMessage());
     }

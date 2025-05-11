@@ -22,4 +22,11 @@ public class TempResponse {
     public static class TempExceptionDTO{
         Integer flag;
     }
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DiscordExceptionDto{
+        String content;
+    }
 }
