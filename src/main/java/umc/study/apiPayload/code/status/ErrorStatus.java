@@ -24,8 +24,10 @@ public enum ErrorStatus implements BaseErrorCode {
     //아티클 관련 에러
     ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "ARTICLE4001", "게시글이 없습니다."),
     // For test
-    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트");
+    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트"),
 
+    //디스코드
+    DISCORD_EXCEPTION(HttpStatus.BAD_REQUEST, "DISCORD4001", "테스트용");
 
     private final HttpStatus httpStatus;
     private final String code;
