@@ -24,3 +24,13 @@ spring:
           level:
             org.hibernate.SQL: DEBUG
             org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# application.yml
+  error:
+    alert:
+      enabled: false
+
+
+  webhook:
+    discord:
+      url: https://discord.com/api/webhooks/1370995959156445294/_vFpNazHORz09A__u1iGyNn7-oktc_lvUJcs1xLhmw6eJ38UdT8475L0HfET1SEpoBAn
