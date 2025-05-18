@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import umc.study.service.resetaurantService.RestaurantQueryService;
+import umc.study.service.restaurantService.RestaurantQueryService;
 
 @SpringBootApplication
 @EnableJpaAuditing

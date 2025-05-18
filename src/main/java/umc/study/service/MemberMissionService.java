@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import umc.study.converter.MemberMissionConverter;
 import umc.study.mapping.MissionHistory;
 import umc.study.reposistory.missionHistoryRepository.MissionHistoryRepository;
-import umc.study.web.dto.MemberMissionResponse;
+import umc.study.web.response.MemberMissionResponse;
 
 @Service
 @RequiredArgsConstructor

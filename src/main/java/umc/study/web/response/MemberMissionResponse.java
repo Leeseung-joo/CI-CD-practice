@@ -1,4 +1,4 @@
-package umc.study.web.dto;
+package umc.study.web.response;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

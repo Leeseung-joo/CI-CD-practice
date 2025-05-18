@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.study.domain.Member;
-import umc.study.reposistory.MemberRepository;
+import umc.study.reposistory.memberRepository.MemberRepository;
 import umc.study.reposistory.missionHistoryRepository.MissionHistoryRepository;
 import umc.study.reposistory.NotificationRepository;
 

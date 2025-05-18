@@ -1,4 +1,4 @@
-package umc.study.reposistory;
+package umc.study.reposistory.memberRepository;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
