@@ -29,7 +29,9 @@ public enum ErrorStatus implements BaseErrorCode {
     //디스코드
     DISCORD_EXCEPTION(HttpStatus.BAD_REQUEST, "DISCORD4001", "테스트용"),
 
-    RESTAURANT_NOT_FOUND(HttpStatus.BAD_REQUEST,"RESTAURANT4001", "레스토랑이 없습니다.");
+    RESTAURANT_NOT_FOUND(HttpStatus.BAD_REQUEST,"RESTAURANT4001", "레스토랑이 없습니다."),
+
+    MISSION_NOT_FOUND(HttpStatus.BAD_REQUEST,"MISSION4001",  "미션이 없습니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
