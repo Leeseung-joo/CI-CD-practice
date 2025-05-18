@@ -22,6 +22,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.study.common.BaseEntity;
 import umc.study.mapping.FavoriteFood;
 import umc.study.mapping.MissionHistory;
@@ -33,6 +35,8 @@ import org.locationtech.jts.geom.Point;
 @DiscriminatorColumn(name = "member_type") //이걸 해줌으로서 하위 클래스들의 이 컬럼이셍성됨, 더 명확해짐
 @Getter
 @Builder
+@DynamicUpdate
+@DynamicInsert //null 인경우에 쿼리를 보내지 않도록 함
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Member extends BaseEntity {

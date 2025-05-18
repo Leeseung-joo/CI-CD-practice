@@ -1,9 +1,8 @@
-package umc.study.service.resetaurantService;
+package umc.study.service.restaurantService;
 
 
 import java.util.List;
 import java.util.Optional;
-import javax.swing.text.html.Option;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

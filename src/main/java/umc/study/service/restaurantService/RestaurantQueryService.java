@@ -1,4 +1,4 @@
-package umc.study.service.resetaurantService;
+package umc.study.service.restaurantService;
 
 import java.util.List;
 import java.util.Optional;

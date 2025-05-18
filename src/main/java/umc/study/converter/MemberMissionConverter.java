@@ -1,7 +1,7 @@
 package umc.study.converter;
 
 import umc.study.mapping.MissionHistory;
-import umc.study.web.dto.MemberMissionResponse;
+import umc.study.web.response.MemberMissionResponse;
 
 public class MemberMissionConverter {
 

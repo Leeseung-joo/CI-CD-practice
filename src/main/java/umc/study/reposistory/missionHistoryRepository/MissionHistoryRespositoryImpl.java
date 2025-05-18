@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import umc.study.domain.QRestaurant;
 import umc.study.mapping.QMissionHistory;
-import umc.study.web.dto.MemberMissionResponse;
+import umc.study.web.response.MemberMissionResponse;
 
 @Repository
 @RequiredArgsConstructor

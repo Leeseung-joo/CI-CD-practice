@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import umc.study.service.MemberMissionService;
-import umc.study.service.MemberService;
-import umc.study.web.dto.MemberMissionResponse;
+import umc.study.web.response.MemberMissionResponse;
 
 @RestController
 @RequiredArgsConstructor
