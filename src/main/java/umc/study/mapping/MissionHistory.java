@@ -19,7 +19,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import umc.study.common.BaseEntity;
 import umc.study.domain.Member;
-import umc.study.domain.Misson;
+import umc.study.domain.Mission;
 import umc.study.domain.Status;
 
 @Entity
@@ -50,7 +50,7 @@ public class MissionHistory extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id", nullable = false)
-    private Misson mission;
+    private Mission mission;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", nullable = false)
